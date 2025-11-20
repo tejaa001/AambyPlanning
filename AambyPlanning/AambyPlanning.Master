@@ -1,0 +1,397 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="AambyPlanning.Master.cs" Inherits="AambyPlanning.Site1" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - Home</title>
+
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+
+    <style>
+        /* Custom styles for the master page */
+        .navbar-brand {
+            font-weight: 600;
+            padding: 5px 0;
+            transition: transform 0.3s ease;
+        }
+
+        .navbar-brand:hover {
+            transform: scale(1.05);
+        }
+
+        /* Enhanced navbar styles for better logo visibility */
+        .navbar {
+            background: linear-gradient(135deg, #1a2a6c, #2a4b8d, #3a6cb0) !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .main-content {
+            min-height: calc(100vh - 140px);
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+
+        .footer {
+            background-color: #f8f9fa;
+            border-top: 1px solid #dee2e6;
+            padding: 20px 0;
+            margin-top: auto;
+        }
+
+        /* Enhanced dropdown toggle arrow animation */
+        .dropdown-toggle::after {
+            vertical-align: middle;
+            transition: transform 0.3s ease;
+        }
+
+        .dropdown.show .dropdown-toggle::after {
+            transform: rotate(180deg);
+        }
+
+        .user-dropdown .dropdown-menu {
+            min-width: 200px;
+        }
+
+        /* Enhanced navigation link styles */
+        .navbar-nav .nav-link {
+            color: rgba(255, 255, 255, 0.9) !important;
+            font-weight: 500;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            padding: 0.75rem 1rem;
+            border-radius: 0.25rem;
+            margin: 0 0.25rem;
+            position: relative;
+        }
+
+        .navbar-nav .nav-link::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.8);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .navbar-nav .nav-link:hover::before {
+            width: 80%;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #fff !important;
+            background-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar-nav .nav-link.active {
+            color: #fff !important;
+            background-color: rgba(255, 255, 255, 0.25);
+            font-weight: 600;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Enhanced dropdown menu styles */
+        .navbar-nav .dropdown-menu {
+            background-color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            padding: 0.5rem 0;
+            margin-top: 0.5rem;
+            min-width: 220px;
+            animation: dropdownFadeIn 0.3s ease;
+        }
+
+        @keyframes dropdownFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Enhanced dropdown item styles */
+        .navbar-nav .dropdown-item {
+            color: #2c3e50;
+            padding: 0.65rem 1.5rem;
+            transition: all 0.2s ease;
+            font-size: 0.95rem;
+            position: relative;
+            border-left: 3px solid transparent;
+        }
+
+        .navbar-nav .dropdown-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 0;
+            background: linear-gradient(90deg, rgba(42, 75, 141, 0.1), transparent);
+            transition: width 0.3s ease;
+        }
+
+        .navbar-nav .dropdown-item:hover {
+            background-color: #f8f9fa;
+            color: #2a4b8d;
+            border-left-color: #2a4b8d;
+            padding-left: 1.75rem;
+        }
+
+        .navbar-nav .dropdown-item:hover::before {
+            width: 100%;
+        }
+
+        .navbar-nav .dropdown-item:active {
+            background-color: #e9ecef;
+            color: #1a2a6c;
+        }
+
+        /* Dropdown divider enhancement */
+        .navbar-nav .dropdown-divider {
+            margin: 0.5rem 0;
+            border-top: 1px solid #e9ecef;
+        }
+
+        /* Mobile-specific styles */
+        @media (max-width: 991.98px) {
+            .navbar-nav .nav-link {
+                padding: 0.5rem 1rem;
+                margin: 0.25rem 0;
+            }
+
+            .navbar-nav .nav-link::before {
+                display: none;
+            }
+
+            .dropdown-menu {
+                box-shadow: none;
+                border-top: 1px solid rgba(0, 0, 0, 0.1);
+                border-radius: 0;
+                margin-top: 0;
+                animation: none;
+            }
+
+            .navbar-nav .dropdown-item {
+                padding: 0.6rem 1.5rem;
+            }
+
+            .navbar-nav .dropdown-item:hover {
+                padding-left: 1.5rem;
+            }
+        }
+
+        /* Footer link hover effects */
+        .footer a {
+            transition: all 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: #2a4b8d !important;
+            transform: translateX(5px);
+        }
+
+        /* Social icons hover effect */
+        .footer .bi {
+            transition: all 0.3s ease;
+        }
+
+        .footer a:hover .bi {
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+<body class="d-flex flex-column min-vh-100">
+    <form runat="server">
+        <!-- Navigation Bar -->
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container-fluid">
+
+                <!-- Brand Logo/Title -->
+                <a class="navbar-brand" href="HomePage.aspx">
+                    <img src="assets/AambyPlanningLogo.png" alt="MP Tech Solutions" style="height: 65px; width: auto; filter: drop-shadow(0 0 2px rgba(0,0,0,0.5">
+                </a>
+
+                <!-- Mobile Toggle Button -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Navbar Content -->
+                <div class="collapse navbar-collapse" id="navbarContent">
+                    <!-- Left Navigation Links -->
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <!-- Master Dropdown -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle <%= Request.Path.Contains("Master") ? "active" : "" %>" href="#" id="masterDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-diagram-3 me-1"></i>Master
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="masterDropdown">
+                                <li><a class="dropdown-item" href="PlanMaster.aspx">Plan Master</a></li>
+                                <li><a class="dropdown-item" href="YearMaster.aspx">EMI Master</a></li>
+                               <%-- <li><a class="dropdown-item" href="DayMaster.aspx">Day Master</a></li>
+                                <li><a class="dropdown-item" href="CityMaster.aspx">City Master</a></li>
+                                <li><a class="dropdown-item" href="BankMaster.aspx">Bank Master</a></li>
+                                <li><a class="dropdown-item" href="PlotMaster.aspx">Plot Master</a></li>
+                                <li><a class="dropdown-item" href="PlotTypeMaster.aspx">Plot Type Master</a></li>
+                                <li><a class="dropdown-item" href="CompanyMaster.aspx">Company Master</a></li>
+                                <li><a class="dropdown-item" href="CustomerMaster.aspx">Customer Master</a></li>--%>
+                                
+                            </ul>
+                        </li>
+
+                        <!-- Transactions Dropdown -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle <%= Request.Path.Contains("Transaction") ? "active" : "" %>" href="#" id="transactionsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-cash-coin me-1"></i>Transactions
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="transactionsDropdown">
+                                <li><a class="dropdown-item" href="#">Purchase Entry</a></li>
+                                <li><a class="dropdown-item" href="#">Sales Entry</a></li>
+                                <li><a class="dropdown-item" href="#">Payment Entry</a></li>
+                                <li><a class="dropdown-item" href="#">Receipt Entry</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- GST Dropdown -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle <%= Request.Path.Contains("GST") || Request.Path.Contains("Gst") ? "active" : "" %>" href="#" id="gstDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-percent me-1"></i>GST
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="gstDropdown">
+                                <li><a class="dropdown-item" href="#">GST Summary</a></li>
+                                <li><a class="dropdown-item" href="#">GST Filing</a></li>
+                                <li><a class="dropdown-item" href="#">Input Tax Credit</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- Reports Dropdown -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle <%= Request.Path.Contains("Report") ? "active" : "" %>" href="#" id="reportsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-bar-chart-line me-1"></i>Reports
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="reportsDropdown">
+                                <li><a class="dropdown-item" href="#">Sales Report</a></li>
+                                <li><a class="dropdown-item" href="#">Purchase Report</a></li>
+                                <li><a class="dropdown-item" href="#">Stock Report</a></li>
+                                <li><a class="dropdown-item" href="#">Profit & Loss</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- Utilities Dropdown -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle <%= Request.Path.Contains("Utilit") ? "active" : "" %>" href="#" id="utilitiesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-gear me-1"></i>Utilities
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="utilitiesDropdown">
+                                <li><a class="dropdown-item" href="#">Backup Database</a></li>
+                                <li><a class="dropdown-item" href="#">User Management</a></li>
+                                <li><a class="dropdown-item" href="#">System Settings</a></li>
+                            </ul>
+                        </li>
+                        <!-- Admin Zone Link -->
+                        <li class="nav-item">
+                            <a class="nav-link <%= Request.Path.Contains("Admin") ? "active" : "" %>" href="CreateUser.aspx">
+                                <i class="bi bi-shield-lock me-1"></i>Admin Zone
+                            </a>
+                        </li>
+
+                        <!-- Logout Button -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="LoginPage.aspx" title="Logout">
+                                <i class="bi bi-box-arrow-right me-1"></i>Logout
+                            </a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="main-content flex-shrink-0">
+            <div class="container-fluid">
+                <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                </asp:ContentPlaceHolder>
+
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer mt-auto py-4 bg-dark text-light">
+            <div class="container-fluid">
+                <div class="row">
+                    <!-- Company Info -->
+                    <div class="col-md-4 mb-3">
+                        <h5 class="text-uppercase mb-3">MP Tech Solutions Pvt. Ltd.</h5>
+                        <p class="small text-muted">
+                            Providing smart business solutions and digital transformation services. 
+                            We aim to simplify your business operations through innovation and technology.
+                        </p>
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div class="col-md-4 mb-3">
+                        <h6 class="text-uppercase mb-3">Quick Links</h6>
+                        <ul class="list-unstyled">
+                            <li><a href="Dashboard.aspx" class="text-decoration-none text-light small">Dashboard</a></li>
+                            <li><a href="Reports.aspx" class="text-decoration-none text-light small">Reports</a></li>
+                            <li><a href="Utilities.aspx" class="text-decoration-none text-light small">Utilities</a></li>
+                            <li><a href="Contact.aspx" class="text-decoration-none text-light small">Contact Us</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Contact Info -->
+                    <div class="col-md-4 mb-3">
+                        <h6 class="text-uppercase mb-3">Contact</h6>
+                        <p class="small mb-1"><i class="bi bi-geo-alt-fill me-2"></i>Aamby Valley City, Maharashtra, India</p>
+                        <p class="small mb-1"><i class="bi bi-telephone-fill me-2"></i>+91 98765 43210</p>
+                        <p class="small mb-1"><i class="bi bi-envelope-fill me-2"></i>info@mptechsolutions.com</p>
+
+                        <!-- Social Icons -->
+                        <div class="mt-2">
+                            <a href="#" class="text-light me-3"><i class="bi bi-facebook"></i></a>
+                            <a href="#" class="text-light me-3"><i class="bi bi-twitter"></i></a>
+                            <a href="#" class="text-light me-3"><i class="bi bi-linkedin"></i></a>
+                            <a href="#" class="text-light"><i class="bi bi-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="border-secondary">
+
+                <!-- Copyright -->
+                <div class="text-center small text-muted">
+                    © 2025 MP Tech Solutions Pvt. Ltd. | All Rights Reserved
+                </div>
+            </div>
+        </footer>
+
+        <!-- Bootstrap JS Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    </form>
+</body>
+</html>

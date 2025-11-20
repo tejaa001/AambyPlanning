@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35027.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AambyPlanning", "AambyPlanning\AambyPlanning.csproj", "{F352722A-6B62-47E6-B2BA-26909FD77265}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F352722A-6B62-47E6-B2BA-26909FD77265}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F352722A-6B62-47E6-B2BA-26909FD77265}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F352722A-6B62-47E6-B2BA-26909FD77265}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F352722A-6B62-47E6-B2BA-26909FD77265}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6F9B0307-282F-4F27-877D-1960B80CD112}
+	EndGlobalSection
+EndGlobal
