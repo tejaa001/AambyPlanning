@@ -67,12 +67,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ArchitectMaster.aspx" />
     <Content Include="assets\AambyPlanningLogo.png" />
+    <Content Include="ConsultantMaster.aspx" />
     <Content Include="CreateProfile.aspx" />
     <Content Include="CreateUser.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="GroupArchitectTrans.aspx" />
+    <Content Include="GroupHeadMaster.aspx" />
+    <Content Include="HoliDays.aspx" />
     <Content Include="LoginPage.aspx" />
     <Content Include="ResetPassword.aspx" />
+    <Content Include="SwitchArchitect.aspx" />
     <Content Include="UserList.aspx" />
     <Content Include="Web.config" />
     <Content Include="HomePage.aspx" />
@@ -84,6 +90,20 @@
     </Compile>
     <Compile Include="AdminZone.Master.designer.cs">
       <DependentUpon>AdminZone.Master</DependentUpon>
+    </Compile>
+    <Compile Include="ArchitectMaster.aspx.cs">
+      <DependentUpon>ArchitectMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ArchitectMaster.aspx.designer.cs">
+      <DependentUpon>ArchitectMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultantMaster.aspx.cs">
+      <DependentUpon>ConsultantMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsultantMaster.aspx.designer.cs">
+      <DependentUpon>ConsultantMaster.aspx</DependentUpon>
     </Compile>
     <Compile Include="CreateProfile.aspx.cs">
       <DependentUpon>CreateProfile.aspx</DependentUpon>
@@ -101,6 +121,27 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="GroupArchitectTrans.aspx.cs">
+      <DependentUpon>GroupArchitectTrans.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GroupArchitectTrans.aspx.designer.cs">
+      <DependentUpon>GroupArchitectTrans.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GroupHeadMaster.aspx.cs">
+      <DependentUpon>GroupHeadMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GroupHeadMaster.aspx.designer.cs">
+      <DependentUpon>GroupHeadMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HoliDays.aspx.cs">
+      <DependentUpon>HoliDays.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HoliDays.aspx.designer.cs">
+      <DependentUpon>HoliDays.aspx</DependentUpon>
     </Compile>
     <Compile Include="LoginPage.aspx.cs">
       <DependentUpon>LoginPage.aspx</DependentUpon>
@@ -130,6 +171,13 @@
     </Compile>
     <Compile Include="ResetPassword.aspx.designer.cs">
       <DependentUpon>ResetPassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SwitchArchitect.aspx.cs">
+      <DependentUpon>SwitchArchitect.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SwitchArchitect.aspx.designer.cs">
+      <DependentUpon>SwitchArchitect.aspx</DependentUpon>
     </Compile>
     <Compile Include="UserList.aspx.cs">
       <DependentUpon>UserList.aspx</DependentUpon>

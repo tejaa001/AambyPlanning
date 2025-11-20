@@ -250,16 +250,12 @@
                                 <i class="bi bi-diagram-3 me-1"></i>Master
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="masterDropdown">
-                                <li><a class="dropdown-item" href="PlanMaster.aspx">Plan Master</a></li>
-                                <li><a class="dropdown-item" href="YearMaster.aspx">EMI Master</a></li>
-                               <%-- <li><a class="dropdown-item" href="DayMaster.aspx">Day Master</a></li>
-                                <li><a class="dropdown-item" href="CityMaster.aspx">City Master</a></li>
-                                <li><a class="dropdown-item" href="BankMaster.aspx">Bank Master</a></li>
-                                <li><a class="dropdown-item" href="PlotMaster.aspx">Plot Master</a></li>
-                                <li><a class="dropdown-item" href="PlotTypeMaster.aspx">Plot Type Master</a></li>
-                                <li><a class="dropdown-item" href="CompanyMaster.aspx">Company Master</a></li>
-                                <li><a class="dropdown-item" href="CustomerMaster.aspx">Customer Master</a></li>--%>
-                                
+                                <li><a class="dropdown-item" href="ConsultantMaster.aspx">Consultant Master</a></li>
+                                <li><a class="dropdown-item" href="GroupHeadMaster.aspx">GroupHead Master</a></li>
+                                <li><a class="dropdown-item" href="ArchitectMaster.aspx">Architect Master</a></li>
+                                <li><a class="dropdown-item" href="GroupArchitectTrans.aspx">Group Architect Master</a></li>
+                                <li><a class="dropdown-item" href="HoliDays.aspx">Holi Days</a></li>
+                                <li><a class="dropdown-item" href="SwitchArchitect.aspx">Switch Architect</a></li>
                             </ul>
                         </li>
 
