@@ -37,11 +37,9 @@
             color: white;
         }
 
-        /* Sticky Table Header */
+        /* Sticky Table Header - Bootstrap doesn't provide this */
         .table-responsive {
             max-height: 600px;
-            overflow-y: auto;
-            position: relative;
         }
 
         .table-responsive .table thead th {
@@ -50,6 +48,55 @@
             z-index: 10;
             background-color: #b8daff !important;
             box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Pagination Styling */
+        .pagination-ys {
+            padding: 20px 0;
+            margin: 0;
+            background-color: #f8f9fa;
+            border-top: 2px solid #dee2e6;
+        }
+
+        .pagination-ys table {
+            margin: 0 auto;
+        }
+
+        .pagination-ys table td {
+            padding: 4px;
+        }
+
+        .pagination-ys table td a,
+        .pagination-ys table td span {
+            display: inline-block;
+            padding: 10px 16px;
+            margin: 0 3px;
+            border: 2px solid #dee2e6;
+            background-color: #fff;
+            color: #0d6efd;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            min-width: 45px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .pagination-ys table td a:hover {
+            background-color: #0d6efd;
+            color: white;
+            border-color: #0d6efd;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(13, 110, 253, 0.3);
+        }
+
+        .pagination-ys table td span {
+            background-color: #0d6efd;
+            color: white;
+            border-color: #0d6efd;
+            font-weight: 700;
+            box-shadow: 0 2px 4px rgba(13, 110, 253, 0.2);
         }
     </style>
 
@@ -63,13 +110,12 @@
         <!-- Consultant Form Card -->
         <div class="card shadow-sm border-0 mb-4">
             <div class="card-header card-header-gradient text-white py-3">
-                <h2 class="mb-0 d-flex align-items-center justify-content-between">
+                <h2 class="mb-0 d-flex align-items-center justify-content-center">
                     <span>
                         <i class="fa fa-user-tie me-2"></i>
                         <asp:Label ID="lblFormTitle" runat="server" Text="Add New Consultant"></asp:Label>
                     </span>
-                    <asp:Button ID="btnExportExcel" runat="server" Text="Export to Excel" 
-                        OnClick="btnExportExcel_Click" CssClass="btn btn-light btn-sm" />
+                   
                 </h2>
             </div>
             <div class="card-body bg-light p-4">
@@ -319,47 +365,49 @@
 
         <!-- GridView Container -->
         <div class="card shadow-sm border-0">
-            <div class="card-header card-header-gradient text-white py-3">
+            <div class="card-header card-header-gradient text-white py-3 d-flex align-items-center justify-content-between">
                 <h4 class="mb-0">
                     <i class="fa fa-list me-2"></i>Consultant List
                 </h4>
+                 <asp:Button ID="btnExportExcel" runat="server" Text="Export to Excel" 
+     OnClick="btnExportExcel_Click" CssClass="btn btn-gradient-success btn-sm" />
             </div>
             <div class="card-body p-3">
                 <div class="table-responsive">
                     <asp:GridView ID="gvConsultants" runat="server" DataKeyNames="ConsultantID" 
                         AutoGenerateColumns="False" AllowPaging="True" PageSize="50"
-                        CssClass="table table-hover table-bordered align-middle mb-0" 
+                        CssClass="table table-hover  table-bordered table-sm align-middle mb-0 text-nowrap w-auto" 
                         OnRowCommand="gvConsultants_RowCommand" OnPageIndexChanging="gvConsultants_PageIndexChanging">
                         <HeaderStyle CssClass="table-primary text-center fw-semibold" />
                         <RowStyle CssClass="text-center" />
                         <PagerStyle CssClass="pagination-ys" HorizontalAlign="Center" />
                         <PagerSettings Mode="NumericFirstLast" FirstPageText="First" LastPageText="Last" PageButtonCount="10" />
-                        <Columns>
-                            <asp:BoundField DataField="ConsultantID" HeaderText="ID" ReadOnly="True" ItemStyle-Width="50px" />
-                            <asp:BoundField DataField="ConsultantName" HeaderText="Consultant Name" ItemStyle-Width="150px" />
-                            <asp:BoundField DataField="ContactPerson" HeaderText="Contact Person" ItemStyle-Width="120px" />
-                            <asp:BoundField DataField="Address1" HeaderText="Address 1" ItemStyle-Width="150px" />
-                            <asp:BoundField DataField="Address2" HeaderText="Address 2" ItemStyle-Width="150px" />
-                            <asp:BoundField DataField="CityName" HeaderText="City" ItemStyle-Width="100px" />
-                            <asp:BoundField DataField="ContactNo" HeaderText="Contact No" ItemStyle-Width="100px" />
-                            <asp:BoundField DataField="FaxNo" HeaderText="Fax No" ItemStyle-Width="100px" />
-                            <asp:BoundField DataField="Email" HeaderText="Email" ItemStyle-Width="150px" />
-                            <asp:BoundField DataField="Specialisation" HeaderText="Specialisation" ItemStyle-Width="150px" />
-                            <asp:BoundField DataField="PAN" HeaderText="PAN" ItemStyle-Width="100px" />
-                            <asp:BoundField DataField="BSTNo" HeaderText="BST No" ItemStyle-Width="100px" />
-                            <asp:BoundField DataField="CSTNo" HeaderText="CST No" ItemStyle-Width="100px" />
-                            <asp:BoundField DataField="WCTNo" HeaderText="WCT No" ItemStyle-Width="100px" />
-                            <asp:BoundField DataField="ServiceTaxNo" HeaderText="Service Tax No" ItemStyle-Width="120px" />
-                            <asp:BoundField DataField="PFNo" HeaderText="PF No" ItemStyle-Width="100px" />
-                            <asp:BoundField DataField="LabLicNo" HeaderText="Lab Lic No" ItemStyle-Width="100px" />
-                            <asp:BoundField DataField="ESICNo" HeaderText="ESIC No" ItemStyle-Width="100px" />
-                            <asp:BoundField DataField="ProfTaxNo" HeaderText="Prof Tax No" ItemStyle-Width="100px" />
-                            <asp:BoundField DataField="BankName" HeaderText="Bank Name" ItemStyle-Width="120px" />
-                            <asp:BoundField DataField="AcNo" HeaderText="Account No" ItemStyle-Width="120px" />
-                            <asp:BoundField DataField="Branch" HeaderText="Branch" ItemStyle-Width="120px" />
-                            <asp:BoundField DataField="Remark" HeaderText="Remark" ItemStyle-Width="150px" />
+                        <Columns >
+                            <asp:BoundField DataField="ConsultantID" HeaderText="ID" ReadOnly="True" />
+                            <asp:BoundField DataField="ConsultantName" HeaderText="Consultant Name" />
+                            <asp:BoundField DataField="ContactPerson" HeaderText="Contact Person" />
+                            <asp:BoundField DataField="Address1" HeaderText="Address 1" />
+                            <asp:BoundField DataField="Address2" HeaderText="Address 2" />
+                            <asp:BoundField DataField="CityName" HeaderText="City" />
+                            <asp:BoundField DataField="ContactNo" HeaderText="Contact No" />
+                            <asp:BoundField DataField="FaxNo" HeaderText="Fax No" />
+                            <asp:BoundField DataField="Email" HeaderText="Email" />
+                            <asp:BoundField DataField="Specialisation" HeaderText="Specialisation" />
+                            <asp:BoundField DataField="PAN" HeaderText="PAN" />
+                            <asp:BoundField DataField="BSTNo" HeaderText="BST No" />
+                            <asp:BoundField DataField="CSTNo" HeaderText="CST No" />
+                            <asp:BoundField DataField="WCTNo" HeaderText="WCT No" />
+                            <asp:BoundField DataField="ServiceTaxNo" HeaderText="Service Tax No" />
+                            <asp:BoundField DataField="PFNo" HeaderText="PF No" />
+                            <asp:BoundField DataField="LabLicNo" HeaderText="Lab Lic No" />
+                            <asp:BoundField DataField="ESICNo" HeaderText="ESIC No" />
+                            <asp:BoundField DataField="ProfTaxNo" HeaderText="Prof Tax No" />
+                            <asp:BoundField DataField="BankName" HeaderText="Bank Name" />
+                            <asp:BoundField DataField="AcNo" HeaderText="Account No" />
+                            <asp:BoundField DataField="Branch" HeaderText="Branch" />
+                            <asp:BoundField DataField="Remark" HeaderText="Remark" />
                             
-                            <asp:TemplateField HeaderText="Status" ItemStyle-Width="80px">
+                            <asp:TemplateField HeaderText="Status">
                                 <ItemTemplate>
                                     <asp:Button
                                         ID="btnActive"
@@ -371,7 +419,7 @@
                                 </ItemTemplate>
                             </asp:TemplateField>
                             
-                            <asp:TemplateField HeaderText="Actions" ItemStyle-Width="120px">
+                            <asp:TemplateField HeaderText="Actions">
                                 <ItemTemplate>
                                     <asp:Button
                                         ID="btnEdit"

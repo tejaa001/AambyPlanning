@@ -87,7 +87,7 @@
                     </div>
 
                     <!-- Permission Section -->
-                    <div class="col-md-6 col-12">
+                    <div class="col-md-6 col-12 ">
                         <div class="section-card p-3 border rounded-3 bg-white shadow-sm h-100">
                             <label for="ddlProfiles" class="form-label fw-bold text-secondary">
                                 <i class="fa fa-key me-2 text-success"></i>Permission
@@ -106,7 +106,7 @@
                                     CssClass="form-check text-start fw-semibold text-dark" />
                             </div>
 
-                            <div class="d-flex justify-content-between mt-3 gap-2">
+                            <div class="d-flex flex-column flex-sm-row justify-content-between mt-3 gap-2">
                                 <asp:Button ID="btnSavePermissions" runat="server"
                                     CssClass="btn btn-gradient-success px-4 fw-semibold shadow-sm"
                                     Text="Save Permissions"
